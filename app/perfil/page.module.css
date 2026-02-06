@@ -1,0 +1,73 @@
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.container h1 {
+  color: #0d213c;
+}
+
+.authCard,
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  background: #ffffff;
+  border: 1px solid #d9dee7;
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.helperText {
+  color: #41556f;
+}
+
+.form input,
+.form textarea {
+  border: 1px solid #b9c4d4;
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+}
+
+.form input:focus,
+.form textarea:focus,
+.button:focus-visible,
+.secondary:focus-visible {
+  outline: 2px solid #0e4d92;
+  outline-offset: 2px;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.button,
+.secondary {
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.button {
+  background: #0e4d92;
+  color: #ffffff;
+}
+
+.secondary {
+  background: #e8edf4;
+  color: #23364d;
+}
+
+.feedback {
+  color: #117a44;
+  font-weight: 600;
+}

@@ -1,0 +1,25 @@
+.box {
+  border: 1px solid #d9dee7;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+
+.box h2 {
+  font-size: 1rem;
+  color: #0d213c;
+  margin-bottom: 0.5rem;
+}
+
+.box ul {
+  padding-left: 1.1rem;
+  color: #41556f;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.loading {
+  color: #41556f;
+  font-size: 0.95rem;
+}
