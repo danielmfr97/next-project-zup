@@ -8,7 +8,6 @@ type ItemDetailPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export const revalidate = 60;
 const ItemExtraDetails = lazy(
   () => import("@/features/items/components/item-extra-details")
 );
@@ -24,6 +23,7 @@ export default async function ItemDetailPage({ params }: ItemDetailPageProps) {
 
   return (
     <main id="conteudo" className={styles.container}>
+      
       <article className={styles.content} aria-labelledby="item-titulo">
         <div className={styles.imageWrapper}>
           <Image
@@ -32,23 +32,37 @@ export default async function ItemDetailPage({ params }: ItemDetailPageProps) {
             alt={`Imagem detalhada do item ${item.title}`}
             fill
             sizes="(min-width: 900px) 50vw, 100vw"
+            priority
           />
         </div>
+        
         <section className={styles.info}>
           <p className={styles.category}>{item.category}</p>
           <h1 id="item-titulo">{item.title}</h1>
           <p className={styles.description}>{item.fullDescription}</p>
-          <p className={styles.price} aria-label={`Preço: ${item.price.toFixed(2)} reais`}>
-            R$ {item.price.toFixed(2)}
+          
+          <div className={styles.priceContainer}>
+            <span className={styles.priceLabel}>Preço:</span>
+            <p className={styles.price}>
+              R$ <strong>{item.price.toFixed(2)}</strong>
+            </p>
+          </div>
+          
+          <p className={styles.generatedAt}>
+            Página atualizada em: <time>{generatedAt}</time>
           </p>
-          <p className={styles.generatedAt} aria-label="Momento de geração da página">
-            Página gerada em: {generatedAt}
-          </p>
+          
           <Suspense
             fallback={
-              <p className={styles.loadingExtra} role="status" aria-live="polite">
-                Carregando informações adicionais...
-              </p>
+              <div 
+                role="status" 
+                aria-live="polite"
+                aria-label="Carregando informações adicionais"
+              >
+                <p className={styles.loadingExtra}>
+                  Carregando informações adicionais...
+                </p>
+              </div>
             }
           >
             <ItemExtraDetails slug={item.slug} />

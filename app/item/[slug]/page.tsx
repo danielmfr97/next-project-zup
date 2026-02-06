@@ -1,2 +1,2 @@
-export { revalidate } from "@/features/items/pages/item-detail-page";
+export const revalidate = 60; 
 export { default } from "@/features/items/pages/item-detail-page";

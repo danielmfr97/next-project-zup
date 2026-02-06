@@ -16,10 +16,23 @@ export default function PerfilPage() {
   const { isAuthenticated, logout } = useAuth();
   const [profile, setProfile] = useState<UserProfile>(initialProfile);
   const [savedMessage, setSavedMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!isAuthenticated) {
       router.push("/");
+      return;
+    }
+
+    try {
+      const savedProfile = localStorage.getItem("userProfile");
+      if (savedProfile) {
+        setProfile(JSON.parse(savedProfile));
+      }
+    } catch (error) {
+      console.error("Erro ao carregar perfil do localStorage:", error);
+    } finally {
+      setIsLoading(false);
     }
   }, [isAuthenticated, router]);
 
@@ -30,7 +43,23 @@ export default function PerfilPage() {
 
   function handleSave(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSavedMessage("Dados salvos localmente.");
+    try {
+      localStorage.setItem("userProfile", JSON.stringify(profile));
+      setSavedMessage("Dados salvos localmente.");
+      
+      setTimeout(() => setSavedMessage(""), 3000);
+    } catch (error) {
+      console.error("Erro ao salvar perfil:", error);
+      setSavedMessage("Erro ao salvar dados.");
+    }
+  }
+
+  if (isLoading) {
+    return (
+      <main id="conteudo" className={styles.container}>
+        <p role="status" aria-live="polite">Carregando perfil...</p>
+      </main>
+    );
   }
 
   return (
