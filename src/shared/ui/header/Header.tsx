@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useAuth } from "../../app/contexts/auth-context";
-import styles from "./header.module.css"; // crie este arquivo
+import { useAuth } from "@/features/auth/context/auth-context";
+import styles from "./header.module.css";
 
 export function Header() {
   const { isAuthenticated, login } = useAuth();

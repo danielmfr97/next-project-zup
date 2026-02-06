@@ -1,7 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { AuthProvider } from "./contexts/auth-context";
-import { Header } from "@/components/Header"; // ajuste o path conforme sua estrutura
+import { AuthProvider } from "@/features/auth/context/auth-context";
+import { Header } from "@/shared/ui/header/Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
