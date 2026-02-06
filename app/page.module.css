@@ -1,82 +1,48 @@
-/* app/login.module.css */
 .container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.loginCard {
-  background: white;
-  border-radius: 12px;
-  padding: 3rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  max-width: 420px;
-}
-
-.loginCard h1 {
-  margin: 0 0 0.5rem;
-  font-size: 2rem;
-  color: #1a202c;
-  text-align: center;
-}
-
-.subtitle {
-  margin: 0 0 2rem;
-  color: #718096;
-  text-align: center;
-  font-size: 0.95rem;
-}
-
-.form {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
-.field {
+.hero {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
-.field label {
-  font-weight: 600;
-  color: #2d3748;
-  font-size: 0.9rem;
+.hero h1 {
+  font-size: clamp(1.8rem, 2.4vw, 2.5rem);
+  color: #0d213c;
 }
 
-.field input {
-  padding: 0.875rem 1rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.2s;
+.hero p {
+  color: #41556f;
+  max-width: 700px;
+  line-height: 1.5;
 }
 
-.field input:focus {
-  outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+.grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.button {
-  margin-top: 0.5rem;
-  padding: 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+.gridItem {
+  min-height: 100%;
 }
 
-.button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+@media (min-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }

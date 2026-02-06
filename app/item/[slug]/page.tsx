@@ -22,7 +22,6 @@ export default async function ItemDetailPage({ params }: ItemDetailPageProps) {
 
   return (
     <main id="conteudo" className={styles.container}>
-      {/* Botão de voltar */}
       <article className={styles.content} aria-labelledby="item-titulo">
         <div className={styles.imageWrapper}>
           <Image
@@ -31,7 +30,6 @@ export default async function ItemDetailPage({ params }: ItemDetailPageProps) {
             alt={`Imagem detalhada do item ${item.title}`}
             fill
             sizes="(min-width: 900px) 50vw, 100vw"
-            priority
           />
         </div>
         <section className={styles.info}>

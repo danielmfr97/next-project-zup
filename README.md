@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Mini Aplicação Next.js - Catálogo de Produtos
 
-First, run the development server:
+## 📋 Sobre o Projeto
+Aplicação web desenvolvida com **Next.js 14+ (App Router)** que demonstra a integração de conceitos fundamentais de desenvolvimento web moderno, incluindo diferentes estratégias de renderização, gerenciamento de estado, API Routes e boas práticas de acessibilidade.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🎯 Funcionalidades Implementadas
+
+### Página Catálogo (`/catalogo`)
+* ✅ Listagem de produtos com **SSG (Static Site Generation)**.
+* ✅ Dados mockados de 5+ produtos.
+* ✅ Cards responsivos com título, descrição e imagem.
+* ✅ Redirecionamento automático da home (`/`) para `/catalogo`.
+
+### Página Detalhe do Produto (`/catalogo/[slug]`)
+* ✅ Rota dinâmica com slug.
+* ✅ Renderização **ISR (Incremental Static Regeneration)** com revalidação de 60s.
+* ✅ Exibição completa dos detalhes do produto.
+* ✅ Formatação de preço em Real (BRL).
+
+### Página Perfil do Usuário (`/perfil`)
+* ✅ Renderização **CSR (Client-Side Rendering)**.
+* ✅ Autenticação simulada via **Context API**.
+* ✅ Edição de dados do usuário (nome e email).
+* ✅ Proteção de rota (redireciona se não autenticado).
+
+### API Routes
+* ✅ `GET /api/items` - Listagem completa de produtos.
+* ✅ `GET /api/items/[slug]` - Detalhes de produto específico.
+* ✅ Dados mockados no backend com TypeScript.
+
+### Componentes e Layout
+* ✅ Header global com navegação contextual.
+* ✅ Botão "LOGAR" posicionado à direita quando não autenticado.
+* ✅ Link "Perfil" visível apenas para usuários autenticados.
+* ✅ **Skip link** para acessibilidade.
+
+---
+
+## 🏗️ Decisões Técnicas
+
+### Estratégias de Renderização
+
+#### SSG (Static Site Generation) - `/catalogo`
+```tsx
+// app/catalogo/page.tsx
+export default async function CatalogoPage() {
+  const items = await getItems(); // Dados gerados em build time
+  return <ItemList items={items} />;
+}
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+teste
