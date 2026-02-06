@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense} from "react";
 import { getItemBySlug } from "@/features/items/utils/items";
 import styles from "./page.module.css";
 
@@ -22,6 +22,7 @@ export default async function ItemDetailPage({ params }: ItemDetailPageProps) {
 
   return (
     <main id="conteudo" className={styles.container}>
+      {/* Botão de voltar */}
       <article className={styles.content} aria-labelledby="item-titulo">
         <div className={styles.imageWrapper}>
           <Image

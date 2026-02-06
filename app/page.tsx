@@ -1,7 +1,7 @@
 // app/page.tsx
 "use client";
 
-import { FormEvent, useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "./contexts/auth-context";
 import styles from "./page.module.css";
@@ -12,10 +12,10 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
-    login(); // Marca como autenticado
-    router.push("/catalogo"); // Redireciona para o catálogo
+    login();
+    router.push("/catalogo");
   }
 
   return (
@@ -23,7 +23,7 @@ export default function LoginPage() {
       <div className={styles.loginCard}>
         <h1>Bem-vindo!</h1>
         <p className={styles.subtitle}>
-          Entre com suas credenciais para acessar o catálogo
+          Não precisa de login e senha, basta clicar em entrar
         </p>
 
         <form onSubmit={handleSubmit} className={styles.form}>

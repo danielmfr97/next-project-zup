@@ -72,3 +72,17 @@
     height: 420px;
   }
 }
+
+.backButton {
+  margin-bottom: 1.5rem;
+  background: none;
+  border: none;
+  color: #0e4d92;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+}
+.backButton:hover {
+  text-decoration: underline;
+}
